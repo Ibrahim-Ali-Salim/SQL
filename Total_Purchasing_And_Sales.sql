@@ -9,8 +9,8 @@ SELECT distinct A.[ProductID]
       ,A.[ReorderPoint]
       ,A.[StandardCost]
       ,A.[ListPrice]
-	  ,TotalSales = SUM((B.OrderQty*B.UnitPrice)-B.UnitPriceDiscount) OVER(PARTITION BY A.ProductID)
-	  ,TotalSales = SUM(C.OrderQty*C.UnitPrice) OVER(PARTITION BY A.ProductID)
+      ,TotalSales = SUM((B.OrderQty*B.UnitPrice)-B.UnitPriceDiscount) OVER(PARTITION BY A.ProductID)
+      ,TotalSales = SUM(C.OrderQty*C.UnitPrice) OVER(PARTITION BY A.ProductID)
 
   FROM [AdventureWorks2019].[Production].[Product] as A
 	FULL JOIN AdventureWorks2019.Sales.SalesOrderDetail B
